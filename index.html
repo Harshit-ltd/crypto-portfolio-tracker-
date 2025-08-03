@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Portfolio Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="auth">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="toggleRegister(true)">Register</a></p>
+
+        <div id="register" style="display:none">
+            <h2>Register</h2>
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p><a href="#" onclick="toggleRegister(false)">Back to Login</a></p>
+        </div>
+    </div>
+
+    <div id="dashboard" style="display:none">
+        <h2>Welcome to Your Crypto Portfolio</h2>
+        <select id="currencySelect">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="inr">INR</option>
+        </select>
+        <div>
+            <input type="text" id="coinSymbol" placeholder="e.g. bitcoin">
+            <input type="number" id="coinAmount" placeholder="Amount">
+            <button onclick="addCoin()">Add Coin</button>
+        </div>
+        <div id="portfolio"></div>
+        <canvas id="coinChart" width="400" height="200"></canvas>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
